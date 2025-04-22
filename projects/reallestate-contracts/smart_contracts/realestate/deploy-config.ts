@@ -1,5 +1,5 @@
 import { AlgorandClient } from '@algorandfoundation/algokit-utils'
-import { RealestateFactory } from '../artifacts/realestate/RealestateClient'
+import { RealestateFactory } from '../artifacts/realestate/RealestateFactory'
 
 // Below is a showcase of various deployment options you can use in TypeScript Client
 export async function deploy() {
@@ -9,7 +9,7 @@ export async function deploy() {
   const deployer = await algorand.account.fromEnvironment('DEPLOYER')
 
   const factory = algorand.client.getTypedAppFactory(RealestateFactory, {
-    defaultSender: deployer.addr,
+    defaultSender: deployer.addr.toString(),
   })
 
   const { appClient, result } = await factory.deploy({ onUpdate: 'append', onSchemaBreak: 'append' })

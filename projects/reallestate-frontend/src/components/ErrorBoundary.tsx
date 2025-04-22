@@ -7,32 +7,50 @@ interface ErrorBoundaryProps {
 interface ErrorBoundaryState {
   hasError: boolean
   error: Error | null
+  errorInfo: React.ErrorInfo | null
 }
 
 class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundaryState> {
   constructor(props: ErrorBoundaryProps) {
     super(props)
-    this.state = { hasError: false, error: null }
+    this.state = {
+      hasError: false,
+      error: null,
+      errorInfo: null,
+    }
   }
 
-  static getDerivedStateFromError(error: Error): ErrorBoundaryState {
-    // Update state so the next render will show the fallback UI.
-    return { hasError: true, error: error }
+  static getDerivedStateFromError(error: Error): Partial<ErrorBoundaryState> {
+    return { hasError: true, error }
+  }
+
+  componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
+    // You could log the error to an error reporting service here
+    console.error('Uncaught error:', error, errorInfo)
+    this.setState({ errorInfo })
   }
 
   render(): ReactNode {
-    if (this.state.hasError) {
-      // You can render any custom fallback UI
+    const { hasError, error, errorInfo } = this.state
+
+    if (hasError) {
       return (
-        <div className="hero min-h-screen bg-teal-400">
-          <div className="hero-content text-center rounded-lg p-6 max-w-md bg-white mx-auto">
+        <div className="hero min-h-screen bg-red-100">
+          <div className="hero-content text-center rounded-lg p-6 max-w-xl bg-white mx-auto">
             <div className="max-w-md">
-              <h1 className="text-4xl">Error occured</h1>
-              <p className="py-6">
-                {this.state.error?.message.includes('Attempt to get default algod configuration')
-                  ? 'Please make sure to set up your environment variables correctly. Create a .env file based on .env.template and fill in the required values. This controls the network and credentials for connections with Algod and Indexer.'
-                  : this.state.error?.message}
+              <h1 className="text-4xl font-bold text-red-600">Something went wrong</h1>
+              <p className="py-6 text-gray-700">
+                {error?.message.includes('Attempt to get default algod configuration')
+                  ? 'Please check your .env file. You might be missing Algorand network configuration. Copy .env.template and set the correct values.'
+                  : error?.message || 'An unexpected error occurred.'}
               </p>
+
+              {import.meta.env.DEV && errorInfo && (
+                <details className="text-left text-sm text-gray-600 whitespace-pre-wrap">
+                  <summary className="cursor-pointer font-semibold">Click to view error details</summary>
+                  {errorInfo.componentStack}
+                </details>
+              )}
             </div>
           </div>
         </div>

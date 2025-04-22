@@ -14,7 +14,7 @@ load_dotenv()
 # Setup logging
 logging.basicConfig(level=logging.INFO)
 
-# Configuration from environment variables
+# Fetch environment variables and validate
 buyer_address = os.getenv("BUYER_ADDRESS")
 buyer_private_key = os.getenv("BUYER_PRIVATE_KEY")
 seller_address = os.getenv("SELLER_ADDRESS")
@@ -26,14 +26,29 @@ algod_token = os.getenv("ALGOD_TOKEN")
 algod_address = os.getenv("ALGOD_ADDRESS")
 
 # Validate essential environment variables
-required_vars = [buyer_address, buyer_private_key, seller_address, seller_private_key,
-                 land_token_id, api_url, token_url, algod_token, algod_address]
+required_vars = {
+    "BUYER_ADDRESS": buyer_address,
+    "BUYER_PRIVATE_KEY": buyer_private_key,
+    "SELLER_ADDRESS": seller_address,
+    "SELLER_PRIVATE_KEY": seller_private_key,
+    "LAND_TOKEN_ID": land_token_id,
+    "API_URL": api_url,
+    "TOKEN_URL": token_url,
+    "ALGOD_TOKEN": algod_token,
+    "ALGOD_ADDRESS": algod_address,
+}
 
-if not all(required_vars):
-    raise EnvironmentError("One or more required environment variables are missing.")
+# Check if any of the required variables are missing
+missing_vars = [key for key, value in required_vars.items() if value is None]
 
-# Convert land token ID to integer
-land_token_id = int(land_token_id)
+if missing_vars:
+    raise EnvironmentError(f"Missing required environment variables: {', '.join(missing_vars)}")
+
+# Ensure LAND_TOKEN_ID is a valid integer
+try:
+    land_token_id = int(land_token_id)
+except ValueError:
+    raise ValueError(f"Invalid value for LAND_TOKEN_ID: {land_token_id}. It must be an integer.")
 
 # Setup Algorand client
 algod_client = algod.AlgodClient(algod_token, algod_address)

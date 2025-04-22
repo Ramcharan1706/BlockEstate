@@ -8,15 +8,33 @@ const Account = () => {
   const algoConfig = getAlgodConfigFromViteEnvironment()
 
   const networkName = useMemo(() => {
-    return algoConfig.network === '' ? 'localnet' : algoConfig.network.toLocaleLowerCase()
+    return algoConfig.network ? algoConfig.network.toLowerCase() : 'localnet'
   }, [algoConfig.network])
 
+  if (!activeAddress) {
+    return (
+      <div className="text-gray-600 text-sm">
+        No wallet connected.
+      </div>
+    )
+  }
+
   return (
-    <div>
-      <a className="text-xl" target="_blank" href={`https://lora.algokit.io/${networkName}/account/${activeAddress}/`}>
-        Address: {ellipseAddress(activeAddress)}
-      </a>
-      <div className="text-xl">Network: {networkName}</div>
+    <div className="bg-gray-100 p-4 rounded-md shadow-sm text-sm space-y-2">
+      <div>
+        <strong>Connected Wallet:</strong>{' '}
+        <a
+          className="text-blue-600 underline hover:text-blue-800"
+          target="_blank"
+          rel="noopener noreferrer"
+          href={`https://lora.algokit.io/${networkName}/account/${activeAddress}/`}
+        >
+          {ellipseAddress(activeAddress)}
+        </a>
+      </div>
+      <div>
+        <strong>Network:</strong> {networkName}
+      </div>
     </div>
   )
 }

@@ -17,7 +17,6 @@ const Transact = ({ openModal, setModalState }: TransactInterface) => {
   const algorand = AlgorandClient.fromConfig({ algodConfig })
 
   const { enqueueSnackbar } = useSnackbar()
-
   const { transactionSigner, activeAddress } = useWallet()
 
   const handleSubmitAlgo = async () => {
@@ -25,28 +24,35 @@ const Transact = ({ openModal, setModalState }: TransactInterface) => {
 
     if (!transactionSigner || !activeAddress) {
       enqueueSnackbar('Please connect wallet first', { variant: 'warning' })
+      setLoading(false)
       return
     }
 
     try {
       enqueueSnackbar('Sending transaction...', { variant: 'info' })
+
       const result = await algorand.send.payment({
-        signer: transactionSigner,
         sender: activeAddress,
         receiver: receiverAddress,
-        amount: algo(1),
+        amount: algo(1), // 1 ALGO
+        signer: transactionSigner,
       })
+
       enqueueSnackbar(`Transaction sent: ${result.txIds[0]}`, { variant: 'success' })
       setReceiverAddress('')
-    } catch (e) {
-      enqueueSnackbar('Failed to send transaction', { variant: 'error' })
+    } catch (e: any) {
+      enqueueSnackbar(`Failed to send transaction: ${e.message}`, { variant: 'error' })
     }
 
     setLoading(false)
   }
 
   return (
-    <dialog id="transact_modal" className={`modal ${openModal ? 'modal-open' : ''} bg-slate-200`}style={{ display: openModal ? 'block' : 'none' }}>
+    <dialog
+      id="transact_modal"
+      className={`modal ${openModal ? 'modal-open' : ''} bg-slate-200`}
+      style={{ display: openModal ? 'block' : 'none' }}
+    >
       <form method="dialog" className="modal-box">
         <h3 className="font-bold text-lg">Send payment transaction</h3>
         <br />
@@ -61,13 +67,14 @@ const Transact = ({ openModal, setModalState }: TransactInterface) => {
           }}
         />
         <div className="modal-action grid">
-          <button className="btn" onClick={() => setModalState(!openModal)}>
+          <button className="btn" onClick={() => setModalState(false)}>
             Close
           </button>
           <button
             data-test-id="send-algo"
-            className={`btn ${receiverAddress.length === 58 ? '' : 'btn-disabled'} lo`}
+            className={`btn ${receiverAddress.length === 58 ? '' : 'btn-disabled'}`}
             onClick={handleSubmitAlgo}
+            type="button"
           >
             {loading ? <span className="loading loading-spinner" /> : 'Send 1 Algo'}
           </button>

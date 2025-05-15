@@ -1,6 +1,6 @@
-# Real Estate
+# BlockEstate
 
-This starter full stack project has been generated using AlgoKit. See below for default getting started instructions.
+BlockEstate project is a decentralized property marketplace that enables secure house buying and selling using the Algorand blockchain. It leverages AlgoKit and PyTeal for smart contracts, ensuring transparent ownership transfer and tamper-proof transactions. The platform uses Node.js and TypeScript for a real-time web interface, with AlgoPy handling backend logic for seamless user experience.
 
 ## Setup
 

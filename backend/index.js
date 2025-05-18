@@ -68,6 +68,12 @@ app.post('/api/process-assets', async (req, res) => {
   }
 });
 
+app.get("/", (req, res) => {
+  res.json({
+    message: "BlockEstate API is working"
+  });
+});
+
 // Start server
 app.listen(PORT, () => {
   console.log(`🚀 Backend running at http://localhost:${PORT}`);

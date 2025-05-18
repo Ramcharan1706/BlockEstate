@@ -26,7 +26,7 @@ app.get('/digilocker/callback', (req, res) => {
   console.log('Received DigiLocker hash:', authHash);
 
   // Respond back to the user with a success message
-  res.send(`DigiLocker Authentication Successful. Hash: ${authHash}`);
+  res.send(`Authentication completed via DigiLocker. Hash: ${authHash}`);
 });
 
 // Root route (optional, just for testing if the server is working)

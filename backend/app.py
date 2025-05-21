@@ -1,5 +1,4 @@
 import os
-
 import logging
 import requests
 import time
@@ -39,7 +38,7 @@ required_vars = {
     "ALGOD_ADDRESS": algod_address,
 }
 
-# Check if any of the required variables are missing
+# Check if required variables are missing
 missing_vars = [key for key, value in required_vars.items() if value is None]
 
 if missing_vars:

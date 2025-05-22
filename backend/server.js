@@ -1,7 +1,6 @@
 const express = require('express');
 const app = express();
 
-// Middleware to parse incoming requests (if needed for JSON or URL-encoded data)
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 

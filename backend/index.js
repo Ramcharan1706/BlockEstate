@@ -40,12 +40,11 @@ app.get('/', (req, res) => {
   res.send('🌐 Real Estate Backend is live!');
 });
 
-// Get all properties
+
 app.get('/api/properties', (req, res) => {
   res.json(properties);
 });
 
-// Get single property
 app.get('/api/properties/:id', (req, res) => {
   const id = parseInt(req.params.id, 10);
   const property = properties.find((p) => p.id === id);

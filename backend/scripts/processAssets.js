@@ -4,7 +4,6 @@ import { fetchUserDocuments } from "../services/api.js";
 import { createAsset, optInAsset, transferAsset } from "../algorand/assetUtils.js";
 import dotenv from "dotenv";
 import algosdk from "algosdk";
-
 dotenv.config();
 
 // Load environment variables

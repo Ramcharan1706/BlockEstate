@@ -33,7 +33,7 @@ app.get('/', (req, res) => {
   res.send('DigiLocker Authentication Server is running!');
 });
 
-// Start the server on port 5000
+// Start the server on the port 5000 
 const port = 5000; // Change port to 3000 or any unused port
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);

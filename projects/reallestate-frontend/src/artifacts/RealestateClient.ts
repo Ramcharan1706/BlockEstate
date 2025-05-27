@@ -1,7 +1,7 @@
 import algosdk, { Algodv2, Indexer, SuggestedParams } from 'algosdk';
 
 const ALGOD_TOKEN = process.env.ALGOD_TOKEN || 'your-algod-token';
-const ALGOD_ADDRESS = process.env.ALGOD_ADDRESS || 'http://localhost:4001';
+const ALGOD_ADDRESS = process.env.ALGOD_ADDRESS || 'http://localhost:4001'; 
 const INDEXER_TOKEN = process.env.INDEXER_TOKEN || 'your-indexer-token';
 const INDEXER_ADDRESS = process.env.INDEXER_ADDRESS || 'http://localhost:8980';
 

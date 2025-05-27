@@ -1,7 +1,7 @@
 let accessToken = "";
 let selectedDocHash = "";
 
-function getAccessToken() {
+function getAccessToken() { 
   fetch("/api/token")
     .then(res => res.json())
     .then(data => {

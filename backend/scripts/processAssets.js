@@ -17,7 +17,7 @@ const sellerKey = algosdk.mnemonicToSecretKey(process.env.SELLER_PRIVATE_KEY).sk
 export async function processAssets() {
   try {
     const token = await getAccessToken();
-    if (!token) {
+    if (!token) { 
       console.error("❌ Failed to get access token.");
       return;
     }

@@ -73,7 +73,7 @@ const ConnectWallet: React.FC<ConnectWalletInterface> = ({ openModal, closeModal
           {/* Close modal button */}
           <button
             data-test-id="close-wallet-modal"
-            className="btn"
+            className="btn" 
             onClick={closeModal}
           >
             Close

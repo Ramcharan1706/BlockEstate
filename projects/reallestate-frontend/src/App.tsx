@@ -5,7 +5,7 @@ import { SnackbarProvider } from 'notistack';
 import {
   SupportedWallet,
   WalletId,
-  WalletManager,
+  WalletManager, 
   WalletProvider,
 } from '@txnlab/use-wallet-react';
 

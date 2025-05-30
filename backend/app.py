@@ -41,6 +41,7 @@ required_vars = {
     "ALGOD_ADDRESS": algod_address,
 }
 
+
 # Check if required variables are missing
 missing_vars = [key for key, value in required_vars.items() if value is None]
 

@@ -41,6 +41,7 @@ app.get('/', (req, res) => {
 });
 
 
+
 app.get('/api/properties', (req, res) => {
   res.json(properties);
 });

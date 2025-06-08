@@ -5,32 +5,38 @@ import path from 'path';
 // Vite Configuration
 export default defineConfig({
   plugins: [
-    react(), // React plugin to handle JSX/TSX files
+    react(), // Enables React JSX/TSX support
   ],
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, './src'), // Alias for easy imports from the src folder
+      '@': path.resolve(__dirname, './src'), // Simplified import paths using '@'
     },
   },
   define: {
-    'process.env': {}, // Prevents "process is not defined" issues for frontend
+    'process.env': {}, // Prevents "process is not defined" error
   },
   optimizeDeps: {
-    include: ['buffer', 'process', 'crypto', 'stream'], // Polyfills for Node.js dependencies
+    include: ['buffer', 'process', 'crypto', 'stream'], // Polyfills for some Node.js packages
   },
   build: {
-    target: 'esnext', // Optimize build for the latest ECMAScript version
-    sourcemap: true, // Generate sourcemaps for easier debugging
+    target: 'esnext',
+    sourcemap: true,
+    outDir: 'dist', // Output directory (used when serving React from Express in prod)
   },
   server: {
-    port: 5173, // Vite's dev server port
-    open: true, // Open the browser automatically when the server starts
+    port: 5173, // Dev server port
+    open: true,
     proxy: {
       '/api': {
-        target: 'http://localhost:5000', // Backend server URL
-        changeOrigin: true, // Changes the origin of the host header to the target URL
-        rewrite: (path) => path.replace(/^\/api/, ''), // Rewrite the path to match backend endpoints
+        target: 'http://localhost:3000',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, ''), // Maps /api/foo -> /foo on backend
       },
     },
-  },
+    host: true, // Allow the server to be accessed externally
+    allowedHosts: [
+      '832c-103-59-153-127.ngrok-free.app', // Add your ngrok URL here
+      'localhost' // Optionally, you can also add 'localhost'
+    ]
+  }
 });

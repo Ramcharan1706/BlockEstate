@@ -1,5 +1,6 @@
 import { useWallet } from '@txnlab/use-wallet-react'
 import { useMemo } from 'react'
+import React from 'react'
 import { ellipseAddress } from '../utils/ellipseAddress'
 import { getAlgodConfigFromViteEnvironment } from '../utils/network/getAlgoClientConfigs'
 

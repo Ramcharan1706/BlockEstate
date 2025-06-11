@@ -40,17 +40,64 @@ const LandManager: React.FC = () => {
     if (!doc1File || !doc2Text.trim() || !doc3File || !newOwnerName.trim()) {
       return setStatus('Please upload all files and enter all required information.');
     }
+
     setLoading(true);
     setStatus('Fetching documents... ⏳');
-    await new Promise((res) => setTimeout(res, 1200));
-    if (randomSuccess()) {
-      setDocuments([doc1File.name, doc2Text, doc3File.name, `New Owner: ${newOwnerName}`]);
-      setStatus('Documents fetched successfully ✅');
-    } else {
-      setStatus('Failed to fetch documents ❌');
+
+    const formData = new FormData();
+    formData.append('doc1', doc1File);
+    formData.append('doc3', doc3File);
+    formData.append('doc2Text', doc2Text);
+    formData.append('newOwnerName', newOwnerName);
+
+    try {
+      const response = await fetch('http://localhost:5000/upload', {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+        body: formData,
+      });
+
+      let data;
+      try {
+        data = await response.json();
+      } catch (err) {
+        return setStatus('Server returned an invalid response ❌');
+      }
+
+      if (response.ok) {
+        const doc1Name = data?.metadata?.doc1 || doc1File.name;
+        const doc3Name = data?.metadata?.doc3 || doc3File.name;
+
+        // Save all user inputs + metadata in state
+        setSubmittedData({
+          doc1FileName: doc1Name,
+          doc2Text,
+          doc3FileName: doc3Name,
+          newOwnerName,
+          metadata: data.metadata
+        });
+
+        setDocuments([
+          doc1Name,
+          doc2Text,
+          doc3Name,
+          `New Owner: ${newOwnerName}`
+        ]);
+        setStatus('Documents fetched successfully ✅');
+      } else {
+        setStatus(data.message || 'Failed to fetch documents ❌');
+      }
+    } catch (error) {
+      console.error('Fetch error:', error);
+      setStatus('Error fetching documents ❌');
+    } finally {
+      setLoading(false);
     }
-    setLoading(false);
   };
+
+
 
   const createAsset = async () => {
     if (!token) return setStatus('Authenticate first!');

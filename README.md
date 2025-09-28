@@ -1,45 +1,138 @@
 # BlockEstate
 
-BlockEstate project is a decentralized property marketplace that enables secure house buying and selling using the Algorand blockchain. It leverages AlgoKit and PyTeal for smart contracts, ensuring transparent ownership transfer and tamper-proof transactions. The platform uses Node.js and TypeScript for a real-time web interface, with AlgoPy handling backend logic for seamless user experience.
+BlockEstate is a decentralized property marketplace that enables secure house buying and selling using the Algorand blockchain. It leverages AlgoKit and PyTeal for smart contracts, ensuring transparent ownership transfer and tamper-proof transactions. The platform uses Node.js and TypeScript for a real-time web interface, with AlgoPy handling backend logic for a seamless user experience.
 
-## Setup
+---
 
-### Initial setup
-1. Clone this repository to your local machine.
-2. Ensure [Docker](https://www.docker.com/) is installed and operational. Then, install `AlgoKit` following this [guide](https://github.com/algorandfoundation/algokit-cli#install).
-3. Run `algokit project bootstrap all` in the project directory. This command sets up your environment by installing necessary dependencies, setting up a Python virtual environment, and preparing your `.env` file.
-4. In the case of a smart contract project, execute `algokit generate env-file -a target_network localnet` from the `reallestate-contracts` directory to create a `.env.localnet` file with default configuration for `localnet`.
-5. To build your project, execute `algokit project run build`. This compiles your project and prepares it for running.
-6. For project-specific instructions, refer to the READMEs of the child projects:
-   - Smart Contracts: [reallestate-contracts](projects/reallestate-contracts/README.md)
-   - Frontend Application: [reallestate-frontend](projects/reallestate-frontend/README.md)
+## 🧰 Prerequisites & Initial Setup
 
-> This project is structured as a monorepo, refer to the [documentation](https://github.com/algorandfoundation/algokit-cli/blob/main/docs/features/project/run.md) to learn more about custom command orchestration via `algokit project run`.
+Before you begin working with BlockEstate, please ensure the following tools are installed on your machine. These are required to build, run, and interact with the decentralized property marketplace locally.
 
-### Subsequently
+| Tool       | Version                 | Purpose                                |
+|------------|-------------------------|----------------------------------------|
+| **Python** | `3.12.x` (exactly)      | Backend logic & smart contract tooling |
+| **Docker** | Latest stable           | Local blockchain environment           |
+| **Git**    | Latest stable           | Clone the repository                   |
+| **Node.js**| `18.x` or newer         | Frontend build tools & CLI scripts     |
+| **AlgoKit**| Latest stable (`algokit`) | Algorand development CLI               |
 
-1. If you update to the latest source code and there are new dependencies, you will need to run `algokit project bootstrap all` again.
-2. Follow step 3 above.
+> ⚠️ Python 3.13 or higher is **not** supported at this time. Please ensure you're using Python 3.12.
 
-## Tools
+---
 
-This project makes use of Python and React to build Algorand smart contracts and to provide a base project configuration to develop frontends for your Algorand dApps and interactions with smart contracts. The following tools are in use:
+### 🔧 Install Dependencies
 
-- Algorand, AlgoKit, and AlgoKit Utils
-- Python dependencies including Poetry, Black, Ruff or Flake8, mypy, pytest, and pip-audit
-- React and related dependencies including AlgoKit Utils, Tailwind CSS, daisyUI, use-wallet, npm, jest, playwright, Prettier, ESLint, and Github Actions workflows for build validation
+Follow these guides to install the required tools:
 
-### VS Code
+- **Python 3.12**  
+  [Download Python 3.12](https://www.python.org/downloads/release/python-3120/)  
+  *(Make sure to add Python to your system PATH)*
 
-It has also been configured to have a productive dev experience out of the box in [VS Code](https://code.visualstudio.com/), see the [backend .vscode](./backend/.vscode) and [frontend .vscode](./frontend/.vscode) folders for more details.
+- **Docker Desktop**  
+  [Install Docker](https://www.docker.com/products/docker-desktop/)
 
-## Integrating with smart contracts and application clients
+- **Git**  
+  [Install Git](https://git-scm.com/downloads)
 
-Refer to the [reallestate-contracts](projects/reallestate-contracts/README.md) folder for overview of working with smart contracts, [projects/reallestate-frontend](projects/reallestate-frontend/README.md) for overview of the React project and the [projects/reallestate-frontend/contracts](projects/reallestate-frontend/src/contracts/README.md) folder for README on adding new smart contracts from backend as application clients on your frontend. The templates provided in these folders will help you get started.
-When you compile and generate smart contract artifacts, your frontend component will automatically generate typescript application clients from smart contract artifacts and move them to `frontend/src/contracts` folder, see [`generate:app-clients` in package.json](projects/reallestate-frontend/package.json). Afterwards, you are free to import and use them in your frontend application.
+- **Node.js**  
+  [Download Node.js](https://nodejs.org/en/download/) (LTS version recommended)
 
-The frontend starter also provides an example of interactions with your RealestateClient in [`AppCalls.tsx`](projects/reallestate-frontend/src/components/AppCalls.tsx) component by default.
+- **AlgoKit CLI**  
+  Follow official guide:  
+  [AlgoKit Installation](https://github.com/algorandfoundation/algokit-cli#installation)
 
-## Next Steps
+---
 
-You can take this project and customize it to build your own decentralized applications on Algorand. Make sure to understand how to use AlgoKit and how to write smart contracts for Algorand before you start.
+### 📦 Get the Project Code
+
+You can either clone the repository or download it as a ZIP file.
+
+#### Option A: Clone via Git
+
+```bash
+git clone https://github.com/your-org/blockestate.git
+cd blockestate
+Option B: Download ZIP
+Go to the GitHub repo
+
+Click Code → Download ZIP
+
+Extract the ZIP and open the folder
+
+⚙️ Initial Project Setup
+Bootstrap the full project environment (this installs dependencies, sets up Python virtualenv, and prepares environment files):
+
+bash
+Copy code
+algokit project bootstrap all
+(For smart contracts) Generate the environment file for localnet:
+
+bash
+Copy code
+cd reallestate-contracts
+algokit generate env-file -a target_network localnet
+Build the entire project:
+
+bash
+Copy code
+cd ..
+algokit project run build
+💡 If you update the source code or add new dependencies, re-run algokit project bootstrap all to keep your environment up to date.
+
+🖥️ Running the Project Locally
+1. Open the project in your editor
+Open VS Code (or your preferred code editor) and open the root project folder (blockestate).
+
+2. Running the Frontend
+bash
+Copy code
+cd projects/reallestate-frontend
+
+# Copy the environment template to create your local .env file
+cp .env.template .env
+
+# Install dependencies
+npm install
+
+# Start the development server
+npm run dev
+After running npm run dev, you will see a localhost URL (e.g., http://localhost:5173).
+
+Ctrl + Click (or Cmd + Click on Mac) the URL in the terminal to open the frontend in your browser.
+
+3. Running the Backend
+bash
+Copy code
+cd ../../backend
+
+# Install required Node.js modules
+npm install express dotenv multer jsonwebtoken body-parser mongodb algosdk axios express-session cors
+
+# Start the backend server
+node server.js
+The backend server will start and listen for API requests.
+
+🛠️ Tools & Technologies Used
+Algorand blockchain with AlgoKit, PyTeal, and AlgoPy
+
+Python with Poetry, Black, Ruff/Flake8, mypy, pytest, pip-audit
+
+React + TypeScript frontend with Tailwind CSS, daisyUI, use-wallet
+
+Node.js backend API with Express and related middleware
+
+Testing & linting: Jest, Playwright, ESLint, Prettier
+
+VS Code configured for developer productivity (.vscode folders included)
+
+🔗 Smart Contract Integration
+Smart contracts reside in reallestate-contracts.
+
+Frontend smart contract clients are generated automatically into projects/reallestate-frontend/src/contracts.
+
+After compiling contracts, run:
+
+bash
+Copy code
+npm run generate:app-clients
+Use the generated clients in your React components. See AppCalls.tsx for example usage.

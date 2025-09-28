@@ -59,7 +59,7 @@ Click Code → Download ZIP
 
 Extract the ZIP and open the folder
 
-⚙️ Initial Project Setup
+#⚙️ Initial Project Setup
 Bootstrap the full project environment (this installs dependencies, sets up Python virtualenv, and prepares environment files):
 
 algokit project bootstrap all
@@ -75,11 +75,11 @@ cd ..
 algokit project run build
 💡 If you update the source code or add new dependencies, re-run algokit project bootstrap all to keep your environment up to date.
 
-🖥️ Running the Project Locally
-1. Open the project in your editor
+#🖥️ Running the Project Locally
+#1. Open the project in your editor
 Open VS Code (or your preferred code editor) and open the root project folder (blockestate).
 
-2. Running the Frontend
+#2. Running the Frontend
 
 cd projects/reallestate-frontend
 
@@ -95,7 +95,7 @@ After running npm run dev, you will see a localhost URL (e.g., http://localhost:
 
 Ctrl + Click (or Cmd + Click on Mac) the URL in the terminal to open the frontend in your browser.
 
-3. Running the Backend
+#3. Running the Backend
 
 cd ../../backend
 
@@ -106,7 +106,7 @@ npm install express dotenv multer jsonwebtoken body-parser mongodb algosdk axios
 node server.js
 The backend server will start and listen for API requests.
 
-🛠️ Tools & Technologies Used
+#🛠️ Tools & Technologies Used
 Algorand blockchain with AlgoKit, PyTeal, and AlgoPy
 
 Python with Poetry, Black, Ruff/Flake8, mypy, pytest, pip-audit
@@ -119,7 +119,7 @@ Testing & linting: Jest, Playwright, ESLint, Prettier
 
 VS Code configured for developer productivity (.vscode folders included)
 
-🔗 Smart Contract Integration
+#🔗 Smart Contract Integration
 Smart contracts reside in reallestate-contracts.
 
 Frontend smart contract clients are generated automatically into projects/reallestate-frontend/src/contracts.

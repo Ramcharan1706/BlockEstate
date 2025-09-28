@@ -62,19 +62,15 @@ Extract the ZIP and open the folder
 ⚙️ Initial Project Setup
 Bootstrap the full project environment (this installs dependencies, sets up Python virtualenv, and prepares environment files):
 
-bash
-Copy code
 algokit project bootstrap all
 (For smart contracts) Generate the environment file for localnet:
 
-bash
-Copy code
+
 cd reallestate-contracts
 algokit generate env-file -a target_network localnet
 Build the entire project:
 
-bash
-Copy code
+
 cd ..
 algokit project run build
 💡 If you update the source code or add new dependencies, re-run algokit project bootstrap all to keep your environment up to date.
@@ -84,8 +80,7 @@ algokit project run build
 Open VS Code (or your preferred code editor) and open the root project folder (blockestate).
 
 2. Running the Frontend
-bash
-Copy code
+
 cd projects/reallestate-frontend
 
 # Copy the environment template to create your local .env file
@@ -101,8 +96,7 @@ After running npm run dev, you will see a localhost URL (e.g., http://localhost:
 Ctrl + Click (or Cmd + Click on Mac) the URL in the terminal to open the frontend in your browser.
 
 3. Running the Backend
-bash
-Copy code
+
 cd ../../backend
 
 # Install required Node.js modules
@@ -132,7 +126,5 @@ Frontend smart contract clients are generated automatically into projects/realle
 
 After compiling contracts, run:
 
-bash
-Copy code
 npm run generate:app-clients
-Use the generated clients in your React components. See AppCalls.tsx for example usage.
+Use the generated clients in your React components.

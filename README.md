@@ -41,16 +41,6 @@ Node.js + Express – REST API server
 
 MongoDB – Document-based property and user data storage
 
-🧪 Dev & Testing
-
-Jest, Playwright – Frontend testing
-
-pytest – Smart contract and backend testing
-
-ESLint, Prettier, Flake8, Ruff, Black – Code quality and linting
-
-VS Code – Dev environment with workspace config
-
 📦 Getting Started
 ✅ Prerequisites
 
@@ -74,15 +64,32 @@ cd blockestate
 
 Follow official guides for:
 
-Install Python 3.12
+🔧 Install Global Tools
 
-Install Node.js
+✅ Install Python 3.12
+🔗 Download Python 3.12 (Windows, macOS, Linux)
 
-Install Docker
+→ Make sure to check "Add Python to PATH" during installation.
 
-Install Git
+✅ Install Node.js (LTS)
+🔗 Download Node.js 18.x+ (LTS)
 
-Install AlgoKit CLI
+→ Choose the LTS version for better compatibility.
+
+✅ Install Docker Desktop
+🔗 Download Docker Desktop
+
+→ Required for running local blockchain nodes (optional, but recommended).
+
+✅ Install Git
+🔗 Download Git
+
+→ Required to clone the project repository.
+
+✅ Install AlgoKit CLI
+🔗 AlgoKit Installation Guide
+
+→ Follow platform-specific steps for macOS, Windows, or Linux.
 
 ⚙️ Project Bootstrapping
 # Bootstrap the entire project

@@ -1,8 +1,8 @@
-BlockEstate
+#BlockEstate
 
 BlockEstate is a decentralized property marketplace that enables secure house buying and selling using the Algorand blockchain. It leverages AlgoKit and PyTeal for smart contracts, ensuring transparent ownership transfer and tamper-proof transactions. The platform uses Node.js and TypeScript for a real-time web interface, with AlgoPy handling backend logic for a seamless user experience.
 
-🧰 Prerequisites & Initial Setup
+##🧰 Prerequisites & Initial Setup
 
 Before you begin working with BlockEstate, please ensure the following tools are installed on your machine. These are required to build, run, and interact with the decentralized property marketplace locally.
 

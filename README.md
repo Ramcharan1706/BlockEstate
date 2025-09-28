@@ -2,32 +2,6 @@ BlockEstate
 
 BlockEstate is a decentralized property marketplace that enables secure house buying and selling using the Algorand blockchain. It leverages AlgoKit and PyTeal for smart contracts, ensuring transparent ownership transfer and tamper-proof transactions. The platform uses Node.js and TypeScript for a real-time web interface, with AlgoPy handling backend logic for a seamless user experience.
 
-🚀 Usage
-
-Register as a landowner or government official via the platform.
-
-Government officials can approve and register properties on-chain securely.
-
-Landowners can list their properties for sale in the decentralized marketplace.
-
-Buyers can browse listings and purchase properties with blockchain-backed ownership transfer.
-
-All transactions and ownership details are immutably recorded on Algorand, ensuring transparency and security.
-
-🛠️ Tools & Technologies Used
-
-Algorand blockchain with AlgoKit, PyTeal, and AlgoPy
-
-Python with Poetry, Black, Ruff/Flake8, mypy, pytest, pip-audit
-
-React + TypeScript frontend with Tailwind CSS, DaisyUI, use-wallet
-
-Node.js backend API with Express and middleware
-
-Testing & linting: Jest, Playwright, ESLint, Prettier
-
-VS Code configured for developer productivity (.vscode folders included)
-
 🧰 Prerequisites & Initial Setup
 
 Before you begin working with BlockEstate, please ensure the following tools are installed on your machine. These are required to build, run, and interact with the decentralized property marketplace locally.
@@ -102,7 +76,6 @@ algokit project run build
 💡 If you update the source code or add new dependencies, re-run algokit project bootstrap all to keep your environment up to date.
 
 🖥️ Running the Project Locally
-
 1. Open the project in your editor
 
 Open VS Code (or your preferred code editor) and open the root project folder (blockestate).
@@ -148,3 +121,29 @@ npm run generate:app-clients
 
 
 Use the generated clients in your React components to interact with the blockchain.
+
+🛠️ Tools & Technologies Used
+
+Algorand blockchain with AlgoKit, PyTeal, and AlgoPy
+
+Python with Poetry, Black, Ruff/Flake8, mypy, pytest, pip-audit
+
+React + TypeScript frontend with Tailwind CSS, DaisyUI, use-wallet
+
+Node.js backend API with Express and middleware
+
+Testing & linting: Jest, Playwright, ESLint, Prettier
+
+VS Code configured for developer productivity (.vscode folders included)
+
+🚀 Usage
+
+Register as a landowner or government official via the platform.
+
+Government officials can approve and register properties on-chain securely.
+
+Landowners can list their properties for sale in the decentralized marketplace.
+
+Buyers can browse listings and purchase properties with blockchain-backed ownership transfer.
+
+All transactions and ownership details are immutably recorded on Algorand, ensuring transparency and security.

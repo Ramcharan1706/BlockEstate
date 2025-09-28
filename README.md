@@ -59,7 +59,7 @@ Click Code → Download ZIP
 
 Extract the ZIP and open the folder
 
-#⚙️ Initial Project Setup
+###⚙️ Initial Project Setup
 Bootstrap the full project environment (this installs dependencies, sets up Python virtualenv, and prepares environment files):
 
 algokit project bootstrap all
@@ -75,7 +75,7 @@ cd ..
 algokit project run build
 💡 If you update the source code or add new dependencies, re-run algokit project bootstrap all to keep your environment up to date.
 
-🖥️ Running the Project Locally
+####🖥️ Running the Project Locally
 1. Open the project in your editor
 
 Open VS Code (or your preferred code editor) and open the root project folder (blockestate).

@@ -4,6 +4,7 @@ import { useWallet } from '@txnlab/use-wallet-react';
 import { useSnackbar } from 'notistack';
 import { getAlgodConfigFromViteEnvironment } from '../utils/network/getAlgoClientConfigs';
 
+
 interface TransactInterface {
   openModal: boolean;
   setModalState: (value: boolean) => void;

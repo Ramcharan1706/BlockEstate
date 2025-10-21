@@ -18,6 +18,7 @@ const LandManager: React.FC = () => {
   const randomSuccess = () => Math.random() > 0.3;
 
   const buttonBase = "px-6 py-2 rounded-md font-semibold shadow-md transition-colors focus:outline-none focus:ring-2 focus:ring-offset-1";
+  
   const buttonOutline = "px-6 py-2 rounded-md border-radius-20pborder-2 border-indigo-600 text-indigo-700 font-semibold hover:bg-indigo-100 transition-colors";
 
   const toggleTransactions = () => setShowTransactions(!showTransactions);

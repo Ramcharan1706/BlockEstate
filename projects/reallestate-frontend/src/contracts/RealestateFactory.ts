@@ -21,7 +21,6 @@ export class RealestateFactory {
       this.algorand.setDefaultSender({ sender: this.defaultSender })
     }
   }
-
   /**
    * Deploy the smart contract
    */

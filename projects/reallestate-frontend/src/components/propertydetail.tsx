@@ -12,7 +12,6 @@ interface Property {
   description: string;
   landTokenId: number;
 }
-
 const PropertyDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>(); // Use useParams to extract the 'id' param from the URL
   const [property, setProperty] = useState<Property | null>(null);

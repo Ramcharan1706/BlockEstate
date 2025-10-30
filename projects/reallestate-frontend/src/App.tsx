@@ -8,8 +8,6 @@ import {
   WalletManager, 
   WalletProvider,
 } from '@txnlab/use-wallet-react';
-
-// Pages and Components
 import Home from './Home';
 import LoginPage from './pages/LoginPage';
 import DigiLockerCallback from './pages/DigiLockerCallBack'; // ✅ Fixed file name case

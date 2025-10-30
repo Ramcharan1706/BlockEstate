@@ -9,11 +9,8 @@ interface ConnectWalletInterface {
 }
 
 const ConnectWallet: React.FC<ConnectWalletInterface> = ({ openModal, closeModal }) => {
-  
   const { wallets, activeAddress, setWalletNetwork } = useWallet()
-
   const isKmd = (wallet: Wallet) => wallet.id === WalletId.KMD
-
   const handleConnectWallet = (wallet: Wallet) => {
     wallet.connect()  // Connect to the selected wallet
     setWalletNetwork('Testnet') // Set the wallet network to Testnet

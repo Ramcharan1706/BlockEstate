@@ -2,7 +2,6 @@ import axios, { AxiosError } from "axios";
 import dotenv from "dotenv";
 dotenv.config();
 
-// Function to log errors more effectively with context
 const logError = (message: string, error: any) => {
   console.error(`[ERROR] ${message}`, error);
 };

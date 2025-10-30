@@ -5,10 +5,8 @@ import { Link } from 'react-router-dom';
 interface Property {
   id: number;
   name: string;
-  
   // Add more fields as needed
 }
-
 const PropertyList: React.FC = () => {
   const [properties, setProperties] = useState<Property[]>([]);
   const [loading, setLoading] = useState(true);

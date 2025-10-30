@@ -11,7 +11,6 @@ import axios from 'axios';
 
 const DIGILOCKER_LOGIN_URL = process.env.REACT_APP_DIGILOCKER_LOGIN_URL || 'http://localhost:3000/digilocker/login';
 const DOCUMENTS_API_URL = process.env.REACT_APP_DOCUMENTS_API_URL || 'http://localhost:3000';
-
 const Home: React.FC = () => {
   const { activeAddress, disconnect } = useWallet();
   const location = useLocation();

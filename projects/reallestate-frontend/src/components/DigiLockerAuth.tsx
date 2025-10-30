@@ -3,7 +3,6 @@ import React from 'react';
 interface DigiLockerAuthProps {
   onAuthSuccess?: (hash: string) => void;  // Optional callback to handle the auth hash after successful login
 }
-
 const DigiLockerAuth: React.FC<DigiLockerAuthProps> = ({ onAuthSuccess }) => {
 
   const handleLogin = () => {

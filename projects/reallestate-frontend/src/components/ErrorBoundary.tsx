@@ -9,8 +9,6 @@ interface ErrorBoundaryState {
   error: Error | null
   errorInfo: React.ErrorInfo | null
 }
-
-
 class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundaryState> {
   constructor(props: ErrorBoundaryProps) {
     super(props)

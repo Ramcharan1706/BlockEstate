@@ -9,7 +9,6 @@ interface TransactInterface {
   openModal: boolean;
   setModalState: (value: boolean) => void;
 }
-
 const Transact: React.FC<TransactInterface> = ({ openModal, setModalState }) => {
   const [loading, setLoading] = useState(false);
   const [receiverAddress, setReceiverAddress] = useState('');

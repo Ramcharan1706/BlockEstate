@@ -7,7 +7,6 @@ import { getAlgodConfigFromViteEnvironment } from '../utils/network/getAlgoClien
 const Account = () => {
   const { activeAddress } = useWallet()
   const algoConfig = getAlgodConfigFromViteEnvironment()
-
   const networkName = useMemo(() => {
     return algoConfig.network ? algoConfig.network.toLowerCase() : 'localnet'
   }, [algoConfig.network])

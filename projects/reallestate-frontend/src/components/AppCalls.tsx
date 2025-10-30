@@ -14,7 +14,6 @@ interface AppCallsInterface {
   openModal: boolean
   setModalState: (value: boolean) => void
 }
-
 const AppCalls = ({ openModal, setModalState }: AppCallsInterface) => {
   const [loading, setLoading] = useState(false)
   const [contractInput, setContractInput] = useState('')

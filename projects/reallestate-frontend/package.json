@@ -11,6 +11,23 @@
     "node": ">=20.0",
     "npm": ">=9.0"
   },
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@algorandfoundation/algokit-utils": "^9.0.0",
+    "@blockshake/defly-connect": "^1.2.1",
+    "@perawallet/connect": "^1.4.1",
+    "@txnlab/use-wallet": "^4.0.0",
+    "@txnlab/use-wallet-react": "^4.0.0",
+    "algosdk": "^3.0.0",
+    "notistack": "^3.0.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "tslib": "^2.6.2"
+  },
   "devDependencies": {
     "@algorandfoundation/algokit-client-generator": "^5.0.0",
     "@types/node": "^18.17.14",
@@ -25,42 +42,7 @@
     "vite": "^5.0.0",
     "vite-plugin-node-polyfills": "^0.22.0"
   },
-  "dependencies": {
-    "@algorandfoundation/algokit-utils": "^9.0.0",
-    "@blockshake/defly-connect": "^1.2.1",
-    "@perawallet/connect": "^1.4.1",
-    "@txnlab/use-wallet": "^4.0.0",
-    "@txnlab/use-wallet-react": "^4.0.0",
-    "algosdk": "^3.0.0",
-    "notistack": "^3.0.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "tslib": "^2.6.2"
-  },
-  "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
-    "preview": "vite preview"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
   "overrides": {
     "ws@>7.0.0 <7.5.9": "7.5.10"
-  },
-  "proxy": "http://localhost:5000"
+  }
 }
